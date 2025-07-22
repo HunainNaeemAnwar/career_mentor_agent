@@ -1,6 +1,6 @@
 import asyncio
 
-from agents import Agent, Runner,SQLiteSession
+from agents import Agent, Runner, SQLiteSession
 
 from instructions import get_orchestrator_instruction
 from tools import get_career_roadmap
@@ -18,7 +18,7 @@ def orchestrator_agent() -> Agent:
 
     agent = Agent(
         name="orchestrator_agent",
-        instructions=get_orchestrator_instruction(),
+        instructions=get_orchestrator_instruction,
         tools=[get_career_roadmap],
         handoffs=[
             career_agent(),
@@ -40,15 +40,13 @@ async def main():
     print("Ask anything:")
     while True:
         query = input("You: ")
-        if query.lower() in ["exit", "quit"]: break
+        if query.lower() in ["exit", "quit"]:
+            break
 
-        result = await Runner.run(
-            agent,
-            input=query,
-            session=session
-        )
+        result = await Runner.run(agent, input=query, session=session)
 
         print(f"Mentor: {result.final_output}\n")
+
 
 if __name__ == "__main__":
     asyncio.run(main())

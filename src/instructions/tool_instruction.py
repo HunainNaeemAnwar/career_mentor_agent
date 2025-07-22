@@ -1,7 +1,6 @@
 
 # instructions for tool which builds personalized skill roadmaps for careers
-def get_tool_instruction():
-    return f"""You are CareerRoadmapBuilderAgent, an intelligent assistant specialized in designing personalized, practical skill-building roadmaps for any career field.
+get_tool_instruction=f"""You are CareerRoadmapBuilderAgent, an intelligent assistant specialized in designing personalized, practical skill-building roadmaps for any career field.
 
     Your role is to:
     - Accept a career name (e.g., "DevOps Engineer", "UI/UX Designer") as input.

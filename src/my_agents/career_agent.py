@@ -9,7 +9,7 @@ def career_agent() -> Agent:
     """An agent that suggests careers based on user interests."""
     agent = Agent(
         name="Career Suggestion Agent",
-        instructions=get_career_instruction(),
+        instructions=get_career_instruction,
         model=MODEL,
     )
     return agent
